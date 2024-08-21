@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer-heroku",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "puppeteer": "^21.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
