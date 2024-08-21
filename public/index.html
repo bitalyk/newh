@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puppeteer Script Runner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppeteer Script Executor</title>
 </head>
 <body>
-  <h1>Puppeteer Script Runner</h1>
-  <button id="runScript">Run Script</button>
-  <p id="result"></p>
+    <h1>Execute Puppeteer Script</h1>
+    <button id="run-script">Run Script</button>
+    <pre id="response"></pre>
 
-  <script>
-    document.getElementById('runScript').addEventListener('click', async () => {
-      try {
-        const response = await fetch('/run-script');
-        const data = await response.json();
-        document.getElementById('result').innerText = `Authorization Token: ${data.token}`;
-      } catch (error) {
-        document.getElementById('result').innerText = 'Error running script';
-      }
-    });
-  </script>
+    <script>
+        document.getElementById('run-script').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/run-script');
+                const result = await response.json();
+                document.getElementById('response').textContent = JSON.stringify(result, null, 2);
+            } catch (error) {
+                document.getElementById('response').textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
 </body>
 </html>
